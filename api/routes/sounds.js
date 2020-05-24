@@ -29,8 +29,12 @@ router.get('/', async (req, res) => {
 
 // Get one sound
 router.get('/:id', getSound, (req, res) => {
-  discordPlayer.playSound(res.sound);
-  res.status(200).json(res.sound);
+  try {
+    discordPlayer.playSound(res.sound);
+    res.status(200).json(res.sound);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 // Create one sound
