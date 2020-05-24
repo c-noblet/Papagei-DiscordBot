@@ -34,13 +34,12 @@ router.get('/:id', getSound, (req, res) => {
 
 // Create one sound
 router.post('/', async (req, res) => {
-  console.log(req.body);
-  
   const sound = new Sound({
     title: req.body.title,
     url: req.body.url
   });
 
+  // Try to add sound in MongoDB
   try {
     const newSound = await sound.save();
     res.status(201).json(newSound);
