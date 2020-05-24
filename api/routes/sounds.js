@@ -3,6 +3,7 @@ const router = express.Router();
 const Sound = require('../../models/sound.js');
 const { discordPlayer } = require('../../discord/index.js');
 
+// Find the sound for GET, PUT and DELETE methods
 async function getSound(req, res, next) {
   try {
     const sound = await Sound.findById(req.params.id);
@@ -39,7 +40,6 @@ router.post('/', async (req, res) => {
     url: req.body.url
   });
 
-  // Try to add sound in MongoDB
   try {
     const newSound = await sound.save();
     res.status(201).json(newSound);
@@ -50,6 +50,8 @@ router.post('/', async (req, res) => {
 
 // Update one sound
 router.patch('/:id', getSound, async (req, res) => {
+
+  // Find data to update
   if (req.body.title != null) {
     res.sound.title = req.body.title;
   }
@@ -62,6 +64,7 @@ router.patch('/:id', getSound, async (req, res) => {
     res.sound.favorite = req.body.favorite;
   }
 
+  // Try to update in the Database
   try {
     const updatedSound = await res.sound.save();
     res.status(200).json(updatedSound);
@@ -72,7 +75,6 @@ router.patch('/:id', getSound, async (req, res) => {
 
 // Delete one sound
 router.delete('/:id', getSound, async (req, res) => {
-  //Sound.findByIdAndRemove(req.params.id);
   try {
     await res.sound.delete();
     res.status(200).json({ message: 'Deleted This Sound' });
