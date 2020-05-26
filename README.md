@@ -1,4 +1,4 @@
-#Papagei discord bot
+# Papagei discord bot
 
 ## Before installation
 
