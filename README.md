@@ -2,7 +2,11 @@
 
 ## Before installation
 
-Insert your mongoDB url and discord bot token in the .env file
+Create a .env file and insert in it your mongoDB url and discord bot token
+```
+DB_HOST=mongodb://database/collection
+TOKEN=token
+```
 
 ## Installation
 
