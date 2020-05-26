@@ -2,7 +2,7 @@
 
 ## Before installation
 
-make sure you have a mongodb database and your own discord bot token
+Make sure you have a mongodb database and your own discord bot token
 
 ## Installation
 
