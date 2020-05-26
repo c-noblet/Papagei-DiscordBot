@@ -17,6 +17,10 @@ const soundSchema = new mongoose.Schema({
   url: {
     type: String,
     required: true,
+  },
+  pic: {
+    type: String,
+    required: true,
   }
 });
 
