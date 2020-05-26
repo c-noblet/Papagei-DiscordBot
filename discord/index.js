@@ -10,7 +10,7 @@ client.on('ready', () => {
     if (!message.guild) return;
   
     if (message.content === '!join') {
-      // Only try to join the sender's voice channel if they are in one themselves
+      // try to join the voice channel
       if (message.member.voice.channel) {
         const connection = await message.member.voice.channel.join();
         discordPlayer.setConnection(connection);
