@@ -2,7 +2,7 @@
 
 ## Before installation
 
-Make sure you have a mongodb database and your own discord bot token
+Insert your mongoDB url and discord bot token in the .env file
 
 ## Installation
 
