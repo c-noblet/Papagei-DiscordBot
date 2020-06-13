@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const ytdl = require('ytdl-core');
 const Sound = require('../../models/sound.js');
 const { discordPlayer } = require('../../discord/index.js');
 
@@ -39,9 +40,12 @@ router.get('/:id', getSound, (req, res) => {
 
 // Create one sound
 router.post('/', async (req, res) => {
+  const info = await ytdl.getInfo(req.body.url);
+  const pic = info.playerResponse.videoDetails.thumbnail.thumbnails[0].url;
   const sound = new Sound({
     title: req.body.title,
-    url: req.body.url
+    url: req.body.url,
+    pic: pic
   });
 
   try {
