@@ -9,7 +9,7 @@ client.on('ready', () => {
   client.on('message', async message => {
     if (!message.guild) return;
   
-    if (message.content === '!join') {
+    if (message.content === '!p join') {
       // try to join the voice channel
       if (message.member.voice.channel) {
         const connection = await message.member.voice.channel.join();
