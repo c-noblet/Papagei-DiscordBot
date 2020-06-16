@@ -5,7 +5,6 @@ const { discordPlayer } = require('../../discord/index.js');
 // Play one sound
 router.get('/:id', (req, res) => {
   try {
-    console.log(req.params.id);
     discordPlayer.playSound(req.params.id);
     res.status(200).json({ message: 'playing' });
   } catch (err) {
