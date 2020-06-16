@@ -22,6 +22,7 @@ client.on('ready', () => {
         const connection = await message.member.voice.channel.join();
         discordPlayer.setConnection(connection);
         silenceJob.start();
+        connection.on('disconnect', silenceJob.stop());
       } else {
         message.reply('You need to join a voice channel first!');
       }
@@ -32,5 +33,6 @@ client.on('ready', () => {
 
 module.exports = {
   discordPlayer,
-  client
+  client,
+  silenceJob
 };
