@@ -9,7 +9,6 @@ router.get('/:id', async (req, res) => {
     const connection = await channel.join();
     discordPlayer.setConnection(connection);
     silenceJob.start();
-    connection.on('disconnect', silenceJob.stop());
     res.status(200).json({ message: 'connecting' });
   } catch (err) {
     console.log(err);
