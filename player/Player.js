@@ -9,8 +9,8 @@ class Player {
     this.connection = connection;
   }
 
-  playSound(sound) {
-    this.connection.play(ytdl(sound.url, { filter: 'audioonly' }), {
+  playSound(ytId) {
+    this.connection.play(ytdl(`https://youtu.be/${ytId}`, { filter: 'audioonly' }), {
       volume: 0.1
     });
   }
