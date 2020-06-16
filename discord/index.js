@@ -8,7 +8,6 @@ const discordPlayer = new Player();
 // this silenceJob avoid the bot from auto disconnect
 const silenceJob = new CronJob('*/5 * * * *', () => {
   discordPlayer.playSilence();
-  console.log('silence');
 });
 
 client.on('ready', () => {
