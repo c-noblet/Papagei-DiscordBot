@@ -14,6 +14,12 @@ class Player {
       volume: 0.1
     });
   }
+
+  playSilence() {
+    this.connection.play('./silence.wav', {
+      volume: 0.1
+    });
+  }
 }
 
 module.exports = Player;
